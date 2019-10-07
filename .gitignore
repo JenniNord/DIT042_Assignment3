@@ -3,3 +3,6 @@
 *.iml
 *.xml___jb_tmp___
 *.class
+.classpath
+.project
+*.prefs
