@@ -1,17 +1,17 @@
 package assign3;
 
 public class Employee {
-    private String id;
+    private int id;
     private String name;
     private double grossSalary;
 
-    public Employee(String id, String name, double grossSalary) {
+    public Employee(int id, String name, double grossSalary) {
         this.id = id;
         this.name = name;
         this.grossSalary = grossSalary;
     }
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
