@@ -19,11 +19,17 @@ public class ReusaxCorp {
     }
 
     /**
-     * Add logic for retrieving an employee by id.
+     * Loops through all employees until an employee with matching ID is found.
+     * Returns null and prints an error message if employee cannot be retrieved.
      */
     public Employee retrieveEmployee(int id) {
-        //Find the employee with matching id from employees ArrayList
-        //Return null if nothing is found and return the employee object if found
+        for (Employee employee : employees) {
+            if (employee.getId() == id) {
+                return employee;
+            }
+        }
+
+        System.out.println("An employee of ID " + id + " is not registered in the system.");
         return null;
     }
 
@@ -63,7 +69,7 @@ public class ReusaxCorp {
     /**
      * Returns the number of employees registered in the employees ArrayList.
      */
-    public int totalNumberOfEmployees() {
+    public int getTotalNumberOfEmployees() {
         return employees.size();
     }
 
@@ -75,5 +81,37 @@ public class ReusaxCorp {
      */
     public static void main(String[] args) {
         ReusaxCorp reusaxCorp = new ReusaxCorp();
+
+        //Testing registerEmployee()
+        reusaxCorp.registerEmployee(1,"Fransisco", 10000);
+        reusaxCorp.registerEmployee(2,"Katja", 10000);
+
+        //Testing retrieveEmployee()
+        System.out.println("TEST 1");
+        System.out.println(reusaxCorp.retrieveEmployee(2));
+        System.out.println();
+
+        //Testing removeEmployee, retrieveEmployee() should return null since we deleted Katja
+        System.out.println("TEST 2");
+        reusaxCorp.removeEmployee(2);
+        System.out.println(reusaxCorp.retrieveEmployee(2));
+        System.out.println();
+
+        //Tests getTotalNumberOfEmployees, should be 3 since we delete Katja
+        System.out.println("TEST 3");
+        reusaxCorp.registerEmployee(3,"Christian", 20000);
+        reusaxCorp.registerEmployee(4,"Richard", 20000);
+        System.out.println("Total number of employees: " + reusaxCorp.getTotalNumberOfEmployees());
+        System.out.println();
+
+        //Tests updateSalary & updateName
+        System.out.println("TEST 4");
+        System.out.println(reusaxCorp.retrieveEmployee(4).getName());
+        reusaxCorp.updateEmployeeName(4, "Alexander"); //Richard changes name to Alexander
+        System.out.println(reusaxCorp.retrieveEmployee(4).getName());
+
+        System.out.println(reusaxCorp.retrieveEmployee(1).getGrossSalary());
+        reusaxCorp.updateEmployeeSalary(1, 20000); //Fransisco gets a raise
+        System.out.println(reusaxCorp.retrieveEmployee(1).getGrossSalary());
     }
 }
