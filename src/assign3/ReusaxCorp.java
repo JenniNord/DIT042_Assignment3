@@ -9,11 +9,65 @@ public class ReusaxCorp {
         employees = new ArrayList<>();
     }
 
-    //Add methods to register, remove, retrieve, update employees
-    //Add method for calculating the total expenses in by paying:
-    //Gross salaries
-    //Net salaries
-    //Also add methods to Inform the total number of employees registered
+    /**
+     * Registers a new employee after receiving id, name and grossSalary.
+     * Adds it to the employees ArrayList.
+     */
+    public void registerEmployee(int id, String name, double grossSalary) {
+        Employee employee = new Employee(id, name, grossSalary);
+        employees.add(employee);
+    }
+
+    /**
+     * Add logic for retrieving an employee by id.
+     */
+    public Employee retrieveEmployee(int id) {
+        //Find the employee with matching id from employees ArrayList
+        //Return null if nothing is found and return the employee object if found
+        return null;
+    }
+
+    /**
+     * Removes the employee with the same id from the employees ArrayList.
+     */
+    public void removeEmployee(int id) {
+        Employee employeeToRemove = retrieveEmployee(id);
+
+        if (employeeToRemove != null) {
+            employees.remove(employeeToRemove); //do you use the employee object or the id to remove?
+        }
+    }
+
+    /**
+     * Updates the employee's name after retrieving it from id.
+     */
+    public void updateEmployeeName(int id, String name) {
+        Employee employee = retrieveEmployee(id);
+
+        if (employee != null) {
+            employee.setName(name);
+        }
+    }
+
+    /**
+     * Update the employee's salary after retrieving it from id.
+     */
+    public void updateEmployeeSalary(int id, double salary) {
+        Employee employee = retrieveEmployee(id);
+
+        if (employee != null) {
+            employee.setGrossSalary(salary);
+        }
+    }
+
+    /**
+     * Returns the number of employees registered in the employees ArrayList.
+     */
+    public int totalNumberOfEmployees() {
+        return employees.size();
+    }
+
+    //Add methods for calculating the total expenses in by paying: 1) Gross salaries 2) Net salaries
 
     /**
      * Method to test/run ReusaxCorp
