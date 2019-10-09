@@ -50,6 +50,7 @@ public class Employee {
     @Override
     public boolean equals(Object other) {
     	Employee otherEmployee = (Employee) other;
+
     	if (getId().equals(otherEmployee.getId())) {
     		return true;
     	} else {

@@ -13,7 +13,7 @@ public class ReusaxCorp {
      * Registers a new employee after receiving id, name and grossSalary.
      * Adds it to the employees ArrayList.
      */
-    public void registerEmployee(int id, String name, double grossSalary) {
+    public void registerEmployee(String id, String name, double grossSalary) {
         Employee employee = new Employee(id, name, grossSalary);
         employees.add(employee);
     }
@@ -22,9 +22,11 @@ public class ReusaxCorp {
      * Loops through all employees until an employee with matching ID is found.
      * Returns null and prints an error message if employee cannot be retrieved.
      */
-    public Employee retrieveEmployee(int id) {
+    public Employee retrieveEmployee(String id) {
         for (Employee employee : employees) {
-            if (employee.getId() == id) {
+            Employee testEmployee = new Employee(id, "", 0);
+
+            if (employee.equals(testEmployee)) {
                 return employee;
             }
         }
@@ -36,7 +38,7 @@ public class ReusaxCorp {
     /**
      * Removes the employee with the same id from the employees ArrayList.
      */
-    public void removeEmployee(int id) {
+    public void removeEmployee(String id) {
         Employee employeeToRemove = retrieveEmployee(id);
 
         if (employeeToRemove != null) {
@@ -47,7 +49,7 @@ public class ReusaxCorp {
     /**
      * Updates the employee's name after retrieving it from id.
      */
-    public void updateEmployeeName(int id, String name) {
+    public void updateEmployeeName(String id, String name) {
         Employee employee = retrieveEmployee(id);
 
         if (employee != null) {
@@ -58,7 +60,7 @@ public class ReusaxCorp {
     /**
      * Update the employee's salary after retrieving it from id.
      */
-    public void updateEmployeeSalary(int id, double salary) {
+    public void updateEmployeeSalary(String id, double salary) {
         Employee employee = retrieveEmployee(id);
 
         if (employee != null) {
@@ -83,35 +85,35 @@ public class ReusaxCorp {
         ReusaxCorp reusaxCorp = new ReusaxCorp();
 
         //Testing registerEmployee()
-        reusaxCorp.registerEmployee(1,"Fransisco", 10000);
-        reusaxCorp.registerEmployee(2,"Katja", 10000);
+        reusaxCorp.registerEmployee("1","Fransisco", 10000);
+        reusaxCorp.registerEmployee("2","Katja", 10000);
 
         //Testing retrieveEmployee()
         System.out.println("TEST 1");
-        System.out.println(reusaxCorp.retrieveEmployee(2));
+        System.out.println(reusaxCorp.retrieveEmployee("2"));
         System.out.println();
 
         //Testing removeEmployee, retrieveEmployee() should return null since we deleted Katja
         System.out.println("TEST 2");
-        reusaxCorp.removeEmployee(2);
-        System.out.println(reusaxCorp.retrieveEmployee(2));
+        reusaxCorp.removeEmployee("2");
+        System.out.println(reusaxCorp.retrieveEmployee("2"));
         System.out.println();
 
         //Tests getTotalNumberOfEmployees, should be 3 since we delete Katja
         System.out.println("TEST 3");
-        reusaxCorp.registerEmployee(3,"Christian", 20000);
-        reusaxCorp.registerEmployee(4,"Richard", 20000);
+        reusaxCorp.registerEmployee("3","Christian", 20000);
+        reusaxCorp.registerEmployee("4","Richard", 20000);
         System.out.println("Total number of employees: " + reusaxCorp.getTotalNumberOfEmployees());
         System.out.println();
 
         //Tests updateSalary & updateName
         System.out.println("TEST 4");
-        System.out.println(reusaxCorp.retrieveEmployee(4).getName());
-        reusaxCorp.updateEmployeeName(4, "Alexander"); //Richard changes name to Alexander
-        System.out.println(reusaxCorp.retrieveEmployee(4).getName());
+        System.out.println(reusaxCorp.retrieveEmployee("4").getName());
+        reusaxCorp.updateEmployeeName("4", "Alexander"); //Richard changes name to Alexander
+        System.out.println(reusaxCorp.retrieveEmployee("4").getName());
 
-        System.out.println(reusaxCorp.retrieveEmployee(1).getGrossSalary());
-        reusaxCorp.updateEmployeeSalary(1, 20000); //Fransisco gets a raise
-        System.out.println(reusaxCorp.retrieveEmployee(1).getGrossSalary());
+        System.out.println(reusaxCorp.retrieveEmployee("1").getGrossSalary());
+        reusaxCorp.updateEmployeeSalary("1", 20000); //Fransisco gets a raise
+        System.out.println(reusaxCorp.retrieveEmployee("1").getGrossSalary());
     }
 }
