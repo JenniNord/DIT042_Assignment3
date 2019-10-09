@@ -31,8 +31,8 @@ public class ReusaxCorp {
     
   //Registers a new director 
     public void registerDirector(String id, String name, double grossSalary, String degreeLevel,
-            String assignedDepartment, double directorsBenefit) {
-    	Employee director = new Director(id, name, grossSalary, degreeLevel, assignedDepartment, directorsBenefit);
+            String assignedDepartment) {
+    	Employee director = new Director(id, name, grossSalary, degreeLevel, assignedDepartment);
     	employees.add(director);
     }
 
@@ -116,6 +116,11 @@ public class ReusaxCorp {
         return totalNet;
     }
 
+    public void directorsBenefit (double directorsBenefit) {
+        directorsBenefit = 5000;
+        Director.setDirectorsBenefit(directorsBenefit);
+    }
+
 
     /**
      * Method to test/run ReusaxCorp
@@ -124,36 +129,18 @@ public class ReusaxCorp {
     public static void main(String[] args) {
         ReusaxCorp reusaxCorp = new ReusaxCorp();
 
-        //Testing registerEmployee()
-        reusaxCorp.registerEmployee("1","Fransisco", 10000);
-        reusaxCorp.registerEmployee("2","Katja", 10000);
 
-        //Testing retrieveEmployee()
-        System.out.println("TEST 1");
-        System.out.println(reusaxCorp.retrieveEmployee("2"));
-        System.out.println();
+        //Tests calculateTotalGrossSalaries and calculateTotalNetSalaries
 
-        //Testing removeEmployee, retrieveEmployee() should return null since we deleted Katja
-        System.out.println("TEST 2");
-        reusaxCorp.removeEmployee("2");
-        System.out.println(reusaxCorp.retrieveEmployee("2"));
-        System.out.println();
+        System.out.println("TEST 5");
+        double directorsBenefit = 5000;
+        reusaxCorp.directorsBenefit(directorsBenefit);
+        reusaxCorp.registerDirector("6","Per",60000,"MSc","Technology");
+        System.out.println("ReusaxCorp pays a total of " + reusaxCorp.calculateTotalGrossSalaries() + " SEK in gross salaries");
+        System.out.println("ReusaxCorp pays a total of " + reusaxCorp.calculateTotalNetSalaries() + " SEK in Net salaries");
 
-        //Tests getTotalNumberOfEmployees, should be 3 since we delete Katja
-        System.out.println("TEST 3");
-        reusaxCorp.registerEmployee("3","Christian", 20000);
-        reusaxCorp.registerEmployee("4","Richard", 20000);
-        System.out.println("Total number of employees: " + reusaxCorp.getTotalNumberOfEmployees());
-        System.out.println();
+        //Tests calculateGrossSalary and calculateNetSalary
 
-        //Tests updateSalary & updateName
-        System.out.println("TEST 4");
-        System.out.println(reusaxCorp.retrieveEmployee("4").getName());
-        reusaxCorp.updateEmployeeName("4", "Alexander"); //Richard changes name to Alexander
-        System.out.println(reusaxCorp.retrieveEmployee("4").getName());
-
-        System.out.println(reusaxCorp.retrieveEmployee("1").getGrossSalary());
-        reusaxCorp.updateEmployeeSalary("1", 20000); //Fransisco gets a raise
-        System.out.println(reusaxCorp.retrieveEmployee("1").getGrossSalary());
     }
+
 }

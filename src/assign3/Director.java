@@ -3,17 +3,13 @@ package assign3;
 public class Director extends Manager {
 
     private String assignedDepartment;
-    private double directorsBenefit;
-    private double grossBonusBenefit;
+    public static double directorsBenefit;
 
     public Director(String id, String name, double grossSalary, String degreeLevel,
-                    String assignedDepartment, double directorsBenefit) {
+                    String assignedDepartment) {
 
         super(id, name, grossSalary, degreeLevel);
         this.assignedDepartment = assignedDepartment;
-        this.directorsBenefit = directorsBenefit;
-        this.grossBonusBenefit = grossBonusBenefit;
-
     }
 
     public void setAssignedDepartment(String assignedDepartment) {
@@ -24,23 +20,25 @@ public class Director extends Manager {
     }
 
 
-    public void setDirectorsBenefit(double directorsBenefit) {
-        this.directorsBenefit = directorsBenefit;
+    public static void setDirectorsBenefit(double directorsBenefit) {
+        Director.directorsBenefit = directorsBenefit;
     }
-    public double getDirectorsBenefit() {
-        return directorsBenefit;
+    public static double getDirectorsBenefit() {
+        return Director.directorsBenefit;
     }
+
 
     // method to calculate the combined base gross pay plus educational bonus from the Manager class
     // plus the director's benefit. I think separating this from the getNetSalary method eases readability
     public double calculateGrossBonusBenefit() {
-        this.grossBonusBenefit = super.calculateGrossPlusBonus() + this.directorsBenefit;
+        double grossBonusBenefit = super.calculateGrossPlusBonus() + Director.directorsBenefit;
         return grossBonusBenefit;
     }
 
 
     // Overrides the same method in Manager class
-    // method to calculate the net salary. 10% for >30k, 20% for >50k, 20% + 40% for anything over 50k
+    // method to calculate the net salary. 10% for >30k, 20% for >50k,
+    // 20% for the first 30k + 40% for any pay over 50k
     @Override
     public double calculateNetSalary() {
     double netSalary;
