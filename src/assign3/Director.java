@@ -6,7 +6,7 @@ public class Director extends Manager {
     private double directorsBenefit;
     private double grossBonusBenefit;
 
-    public Director(int id, String name, double grossSalary, String degreeLevel,
+    public Director(String id, String name, double grossSalary, String degreeLevel,
                     String assignedDepartment, double directorsBenefit) {
 
         super(id, name, grossSalary, degreeLevel);
