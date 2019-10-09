@@ -75,7 +75,29 @@ public class ReusaxCorp {
         return employees.size();
     }
 
-    //Add methods for calculating the total expenses in by paying: 1) Gross salaries 2) Net salaries
+    //  Method to calculate the total gross salaries for all employees, using the
+    //  getGrossSalary method
+    public double calculateTotalGrossSalaries() {
+
+        double totalGross = 0;
+
+        for (int i = 0; i < employees.size(); i++) {
+            totalGross = totalGross + employees.get(i).getGrossSalary();
+        }
+        return totalGross;
+    }
+
+    //  Method to calculate the total net salaries for all employees, using the
+    //  calculateNetSalary methods from each class
+    public double calculateTotalNetSalaries() {
+
+        double totalNet = 0;
+        for (int i = 0; i < employees.size(); i++) {
+            totalNet = totalNet + employees.get(i).calculateNetSalary();
+        }
+        return totalNet;
+    }
+
 
     /**
      * Method to test/run ReusaxCorp
