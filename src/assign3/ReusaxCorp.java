@@ -17,6 +17,24 @@ public class ReusaxCorp {
         Employee employee = new Employee(id, name, grossSalary);
         employees.add(employee);
     }
+    //Registers a new manager 
+    public void registerManager(String id, String name, double grossSalary, String degreeLevel) {
+    	Employee manager = new Manager(id, name, grossSalary, degreeLevel);
+    	employees.add(manager);
+    }
+    
+  //Registers a new intern 
+    public void registerIntern(String id, String name, double grossSalary, int GPA) {
+    	Intern intern = new Intern(id, name, grossSalary, GPA);
+    	employees.add(intern);
+    }
+    
+  //Registers a new director 
+    public void registerDirector(String id, String name, double grossSalary, String degreeLevel,
+            String assignedDepartment, double directorsBenefit) {
+    	Employee director = new Director(id, name, grossSalary, degreeLevel, assignedDepartment, directorsBenefit);
+    	employees.add(director);
+    }
 
     /**
      * Loops through all employees until an employee with matching ID is found.
@@ -75,7 +93,29 @@ public class ReusaxCorp {
         return employees.size();
     }
 
-    //Add methods for calculating the total expenses in by paying: 1) Gross salaries 2) Net salaries
+    //  Method to calculate the total gross salaries for all employees, using the
+    //  getGrossSalary method
+    public double calculateTotalGrossSalaries() {
+
+        double totalGross = 0;
+
+        for (int i = 0; i < employees.size(); i++) {
+            totalGross = totalGross + employees.get(i).getGrossSalary();
+        }
+        return totalGross;
+    }
+
+    //  Method to calculate the total net salaries for all employees, using the
+    //  calculateNetSalary methods from each class
+    public double calculateTotalNetSalaries() {
+
+        double totalNet = 0;
+        for (int i = 0; i < employees.size(); i++) {
+            totalNet = totalNet + employees.get(i).calculateNetSalary();
+        }
+        return totalNet;
+    }
+
 
     /**
      * Method to test/run ReusaxCorp
