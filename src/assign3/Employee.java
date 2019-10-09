@@ -19,12 +19,12 @@ public class Employee {
         return name;
     }
 
-    public double getGrossSalary() {
-        return grossSalary;
-    }
-
     public void setName(String name) {
         this.name = name;
+    }
+
+    public double getGrossSalary() {
+        return grossSalary;
     }
 
     public void setGrossSalary(double grossSalary) {
