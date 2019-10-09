@@ -16,7 +16,6 @@ public class UserInterface {
     private Scanner input;
 
 
-
     public void run() {
 
         int option;
@@ -35,19 +34,19 @@ public class UserInterface {
                     break;
 
                 case REMOVE_EMPLOYEE:
-                    printAllAnimals();
+
                     break;
 
                 case RETRIEVE_EMPLOYEE:
-                    printOneAnimal();
+
                     break;
 
                 case UPDATE_EMPLOYEE:
-                    printCheapest();
+
                     break;
 
                 case SHOW_GROSS_SALARIES:
-                    wander();
+
                     break;
 
                 case SHOW_NET_SALARIES:
@@ -55,7 +54,7 @@ public class UserInterface {
                     break;
 
                 case TOTAL_EMPLOYEES:
-                    feed();
+
                     break;
 
                 case QUIT:
@@ -70,7 +69,6 @@ public class UserInterface {
             }
         } while (option != QUIT);
     }
-
 
 
     private void printMenuOptions() {
@@ -96,7 +94,9 @@ public class UserInterface {
     }
 
     public static void main(String[] args) {
-        Main program = new Main();
+        UserInterface program = new UserInterface();
         program.run();
+
+    }
 
 }
