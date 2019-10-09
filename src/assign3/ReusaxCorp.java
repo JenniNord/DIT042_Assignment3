@@ -3,7 +3,7 @@ package assign3;
 import java.util.ArrayList;
 
 public class ReusaxCorp {
-    ArrayList<Employee> employees;
+    private ArrayList<Employee> employees;
 
     public ReusaxCorp() {
         employees = new ArrayList<>();
