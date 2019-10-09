@@ -34,7 +34,7 @@ public class Director extends Manager {
     // method to calculate the combined base gross pay plus educational bonus from the Manager class
     // plus the director's benefit. I think separating this from the getNetSalary method eases readability
     public double calculateGrossBonusBenefit() {
-        this.grossBonusBenefit = super.getGrossPlusBonus() + this.directorsBenefit;
+        this.grossBonusBenefit = super.calculateGrossPlusBonus() + this.directorsBenefit;
         return grossBonusBenefit;
     }
 

@@ -38,7 +38,7 @@ public class Manager extends Employee {
     public double getDegreeLevelBonus() {   return this.degreeLevelBonus; }
 
     //This just calculates the gross pay plus the education bonus. Used in Manager AND Director classes
-    public double getGrossPlusBonus () {
+    public double calculateGrossPlusBonus () {
         double grossPlusBonus = super.getGrossSalary() + (super.getGrossSalary()* this.degreeLevelBonus);
         return grossPlusBonus;
     }
@@ -47,7 +47,7 @@ public class Manager extends Employee {
     @Override
     public double getNetSalary() {
 
-        double netSalary = getGrossPlusBonus() * 0.9;
+        double netSalary = calculateGrossPlusBonus() * 0.9;
         return netSalary;
 
     }
