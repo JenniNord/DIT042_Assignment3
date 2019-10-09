@@ -19,7 +19,7 @@ public class Intern extends Employee{
     }
     
     @Override //annotation, not required but advised
-    public double getNetSalary() {
+    public double calculateNetSalary() {
     	double adjustedGrossSalary = getGrossSalary();
     	double netSalary = adjustedGrossSalary - (adjustedGrossSalary * 0.1);
     

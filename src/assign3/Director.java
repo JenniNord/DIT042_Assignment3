@@ -42,7 +42,7 @@ public class Director extends Manager {
     // Overrides the same method in Manager class
     // method to calculate the net salary. 10% for >30k, 20% for >50k, 20% + 40% for anything over 50k
     @Override
-    public double getNetSalary() {
+    public double calculateNetSalary() {
     double netSalary;
         if(calculateGrossBonusBenefit() < 30000.00) {
             netSalary = calculateGrossBonusBenefit() * 0.9;

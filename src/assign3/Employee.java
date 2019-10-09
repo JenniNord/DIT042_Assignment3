@@ -34,7 +34,9 @@ public class Employee {
     /**
      * Regular employees has a net income by paying 10% of taxes in his/her gross salary.
      */
-    public double getNetSalary() {
+
+
+    public double calculateNetSalary() {
         double netSalary = grossSalary - (grossSalary * 0.1);
         return netSalary;
     }

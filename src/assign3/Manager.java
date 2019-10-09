@@ -45,7 +45,7 @@ public class Manager extends Employee {
 
     //This overrides/overwrites the getNetSalary in the Employee class, taking the education bonus into account
     @Override
-    public double getNetSalary() {
+    public double calculateNetSalary() {
 
         double netSalary = calculateGrossPlusBonus() * 0.9;
         return netSalary;
