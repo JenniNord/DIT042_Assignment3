@@ -17,6 +17,24 @@ public class ReusaxCorp {
         Employee employee = new Employee(id, name, grossSalary);
         employees.add(employee);
     }
+    //Registers a new manager 
+    public void registerManager(String id, String name, double grossSalary, String degreeLevel) {
+    	Employee manager = new Manager(id, name, grossSalary, degreeLevel);
+    	employees.add(manager);
+    }
+    
+  //Registers a new intern 
+    public void registerIntern(String id, String name, double grossSalary, int GPA) {
+    	Intern intern = new Intern(id, name, grossSalary, GPA);
+    	employees.add(intern);
+    }
+    
+  //Registers a new director 
+    public void registerDirector(String id, String name, double grossSalary, String degreeLevel,
+            String assignedDepartment, double directorsBenefit) {
+    	Employee director = new Director(id, name, grossSalary, degreeLevel, assignedDepartment, directorsBenefit);
+    	employees.add(director);
+    }
 
     /**
      * Loops through all employees until an employee with matching ID is found.
