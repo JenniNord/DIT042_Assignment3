@@ -141,6 +141,36 @@ public class ReusaxCorp {
 
         //Tests calculateGrossSalary and calculateNetSalary
 
+        System.out.println(reusaxCorp.retrieveEmployee("1").getGrossSalary());
+        reusaxCorp.updateEmployeeSalary("1", 20000); //Fransisco gets a raise
+        System.out.println(reusaxCorp.retrieveEmployee("1").getGrossSalary());
+
+        //Test registering intern with different types of GPA
+        System.out.println("TEST 5");
+        reusaxCorp.registerIntern("5", "Billy", 10000, 5);
+        reusaxCorp.registerIntern("6", "Billie", 10000, 6);
+        reusaxCorp.registerIntern("7", "Billi", 10000, 8);
+        System.out.println();
+
+        //Test registering manager
+        System.out.println("TEST 6");
+        reusaxCorp.registerManager("8", "Stephen", 50000, "BSc");
+        reusaxCorp.registerManager("9", "Steven", 50000, "MSc");
+        reusaxCorp.registerManager("10", "Steve", 50000, "phD");
+        System.out.println();
+
+        //Test registering director
+        System.out.println("TEST 7");
+        reusaxCorp.registerDirector("11", "Stefan", 20000, "BSc", "HR");
+        reusaxCorp.registerDirector("12", "Stephan", 27000, "MSc", "Tech");
+        reusaxCorp.registerDirector("13", "Steph", 62000, "phD", "Business");
+        System.out.println();
+
+        //Retrieve intern, manager and director
+
+        //Remove intern, manager and director
+
+        //Update name/salary for intern, manager and director
     }
 
 }
