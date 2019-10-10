@@ -71,8 +71,21 @@ public class TestReusaxCorp {
         reusaxCorp.registerDirector("14","Per",60000,"MSc","Technology");
         System.out.println("ReusaxCorp pays a total of " + reusaxCorp.calculateTotalGrossSalaries() + " SEK in gross salaries");
         System.out.println("ReusaxCorp pays a total of " + reusaxCorp.calculateTotalNetSalaries() + " SEK in Net salaries");
+        System.out.println();
 
         //Tests calculateGrossSalary and calculateNetSalary
+
+        //Tests to promote to intern
+        System.out.println("TEST 9");
+        reusaxCorp.registerManager("15", "TestManager", 10000, "MSc");
+        Manager test = (Manager) reusaxCorp.retrieveEmployee("15");
+        System.out.println("Manager net salary: " + test.calculateNetSalary());
+        System.out.println(test);
+
+        reusaxCorp.promoteToIntern("15", 5);
+        Intern test2 = (Intern) reusaxCorp.retrieveEmployee("15");
+        System.out.println("Intern net salary: " + test2.calculateNetSalary());
+        System.out.println(test2);
 
     }
 }
