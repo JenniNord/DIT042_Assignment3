@@ -58,7 +58,7 @@ public class TestReusaxCorp {
         System.out.println("TEST 6 - Manager CR");
         reusaxCorp.registerManager("8", "Stephen", 10000, "BSc");
         reusaxCorp.registerManager("9", "Steven", 10000, "MSc");
-        reusaxCorp.registerManager("10", "Steve", 10000, "phD");
+        reusaxCorp.registerManager("10", "Steve", 10000, "PhD");
 
         System.out.println(reusaxCorp.retrieveEmployee("8"));
         System.out.println(reusaxCorp.retrieveEmployee("9"));
@@ -69,7 +69,7 @@ public class TestReusaxCorp {
         System.out.println("TEST 7 - Director CR");
         reusaxCorp.registerDirector("11", "Stefan", 20000, "BSc", "HR");
         reusaxCorp.registerDirector("12", "Stephan", 27000, "MSc", "HR");
-        reusaxCorp.registerDirector("13", "Steph", 62000, "phD", "HR");
+        reusaxCorp.registerDirector("13", "Steph", 62000, "PhD", "HR");
 
         System.out.println(reusaxCorp.retrieveEmployee("11"));
         System.out.println(reusaxCorp.retrieveEmployee("12"));
@@ -94,49 +94,110 @@ public class TestReusaxCorp {
         Intern billi = (Intern) reusaxCorp.retrieveEmployee("7");
         System.out.println(billi.getName() + "'s net salary is: " + billi.calculateNetSalary());
 
+        //Manager with BSc, Gross: 10000 , Bonus: 1000, Net: too lazy to mafs
+        Manager stephen = (Manager) reusaxCorp.retrieveEmployee("8");
+        System.out.println(stephen.getName() + "'s net salary is: " + stephen.calculateNetSalary());
 
+        //Manager with MSc, Gross: 10000, Bonus: 2000, Net: too lazy to mafs
+        Manager steven = (Manager) reusaxCorp.retrieveEmployee("9");
+        System.out.println(steven.getName() + "'s net salary is: " + steven.calculateNetSalary());
 
+        //Manager with PhD, Gross: 10000, Bonus: 2000, Net: too lazy to mafs
+        Manager steve = (Manager) reusaxCorp.retrieveEmployee("10");
+        System.out.println(steve.getName() + "'s net salary is: " + steve.calculateNetSalary());
+
+        //Director with BSc, Gross: 20000 , Net: 24300
+        Director stefan = (Director) reusaxCorp.retrieveEmployee("11");
+        System.out.println(stefan.getName() + "'s net salary is: " + stefan.calculateNetSalary());
+
+        //Director with MSc, Gross: 27000, Net: 29920
+        Director stephan = (Director) reusaxCorp.retrieveEmployee("12");
+        System.out.println(stephan.getName() + "'s net salary is: " + stephan.calculateNetSalary());
+
+        //Director with PhD, Gross: 62000, Net: 59220
+        Director steph = (Director) reusaxCorp.retrieveEmployee("13");
+        System.out.println(steph.getName() + "'s net salary is: " + steph.calculateNetSalary());
+        System.out.println();
 
         //Test total expenses gross/net
-
+        System.out.println("TEST 9 - Total expenses");
+        //Creating another company for testing with fewer employees so it'll be easier to see if the calculations are
+        //correct.
+        ReusaxCorp tempReusaxCorp = new ReusaxCorp();
+        tempReusaxCorp.registerEmployee("1", "Test1", 100);
+        tempReusaxCorp.registerIntern("2", "Test2", 100, 5);//Shouldnt get paid
+        tempReusaxCorp.registerManager("3", "Test3", 100, "BSc");
+        tempReusaxCorp.registerDirector("4", "Test4", 100, "MSc", "HR");
+        //Gross expenses: 400
+        System.out.println("Total Gross Salaries: " + tempReusaxCorp.calculateTotalGrossSalaries());
+        //Net expenses: 4797
+        System.out.println("Total Net Salaries: " + tempReusaxCorp.calculateTotalNetSalaries());
+        System.out.println();
 
         //Tests directors benefit
-        //System.out.println("TEST 8");
-        //reusaxCorp.updateDirectorsBenefit(10000);
-        //reusaxCorp.registerDirector("14","Per",60000,"MSc","Technology");
-        //System.out.println("ReusaxCorp pays a total of " + reusaxCorp.calculateTotalGrossSalaries() + " SEK in gross salaries");
-        //System.out.println("ReusaxCorp pays a total of " + reusaxCorp.calculateTotalNetSalaries() + " SEK in Net salaries");
-        //System.out.println();
+        System.out.println("TEST 10 - Directors benefit");
+        reusaxCorp.updateDirectorsBenefit(10000);
+        reusaxCorp.registerDirector("14","Per",60000,"MSc","Technology");
+        System.out.println("ReusaxCorp pays a total of " + reusaxCorp.calculateTotalGrossSalaries() + " SEK in gross salaries");
+        System.out.println("ReusaxCorp pays a total of " + reusaxCorp.calculateTotalNetSalaries() + " SEK in Net salaries");
+        System.out.println();
 
         //Tests to promote to intern
-        //System.out.println("TEST 9");
-        //reusaxCorp.registerManager("15", "TestManager", 10000, "MSc");
-        //Manager test = (Manager) reusaxCorp.retrieveEmployee("15");
-        //System.out.println("Manager net salary: " + test.calculateNetSalary());
-        //System.out.println(test);
-
-        //reusaxCorp.promoteToIntern("15", 5);
-        //Intern test2 = (Intern) reusaxCorp.retrieveEmployee("15");
-        //System.out.println("Intern net salary: " + test2.calculateNetSalary());
-        //System.out.println(test2);
-        //System.out.println();
+        System.out.println("TEST 11 - Promote to Intern");
+        reusaxCorp.registerManager("15", "PromoteToIntern", 10000, "MSc");
+        Manager managerToPromote = (Manager) reusaxCorp.retrieveEmployee("15");
+        System.out.println(managerToPromote.getName() + " gets manager net salary: " + managerToPromote.calculateNetSalary());
+        System.out.println(managerToPromote);
+        reusaxCorp.promoteToIntern("15", 5);
+        Intern promotedManager = (Intern) reusaxCorp.retrieveEmployee("15");
+        System.out.println(promotedManager + " gets intern net salary: " + promotedManager.calculateNetSalary());
+        System.out.println(promotedManager);
+        System.out.println();
 
         //Test promote to manager
+        System.out.println("TEST 12 - Promote to Manager");
+        reusaxCorp.registerIntern("16", "PromoteToManager", 10000, 5);
+        Intern internToPromote = (Intern) reusaxCorp.retrieveEmployee("16");
+        System.out.println(internToPromote.getName() + " gets intern net salary: " + internToPromote.calculateNetSalary());
+        System.out.println(internToPromote);
+        reusaxCorp.promoteToManager("16", "BSc");
+        Manager promotedIntern = (Manager) reusaxCorp.retrieveEmployee("16");
+        System.out.println(promotedIntern.getName() + " gets manager net salary: " + promotedIntern.calculateNetSalary());
+        System.out.println(promotedIntern);
+        System.out.println();
 
         //Test promote to employee
+        System.out.println("TEST 13 - Promote to Employee");
+        reusaxCorp.registerIntern("17", "PromoteToEmployee", 10000, 5);
+        Intern anotherInternToPromote = (Intern) reusaxCorp.retrieveEmployee("17");
+        System.out.println(anotherInternToPromote.getName() + " gets intern net salary: " + anotherInternToPromote.calculateNetSalary());
+        System.out.println(anotherInternToPromote);
+        reusaxCorp.promoteToEmployee("17");
+        Employee promotedToEmployee = reusaxCorp.retrieveEmployee("17");
+        System.out.println(promotedToEmployee.getName() + " gets employee net salary: " + promotedToEmployee.calculateNetSalary());
+        System.out.println(promotedToEmployee);
+        System.out.println();
 
         //Test promote to director
+        System.out.println("TEST 14 - Promote to Director");
+        reusaxCorp.registerEmployee("18", "PromoteToDirector", 10000);
+        Employee employeeToPromote = reusaxCorp.retrieveEmployee("18");
+        System.out.println(employeeToPromote.getName() + " gets employee net salary: " + employeeToPromote.calculateNetSalary());
+        System.out.println(employeeToPromote);
+        reusaxCorp.promoteToDirector("18", "BSc", "HR");
+        Director promotedToDirector = (Director) reusaxCorp.retrieveEmployee("18");
+        System.out.println(promotedToDirector.getName() + " gets director net salary: " + promotedToDirector.calculateNetSalary());
+        System.out.println(promotedToDirector);
+        System.out.println();
 
         //Remove intern, manager and director
-        /*System.out.println("TEST 8 - Remove Intern/Manager/Director");
+        System.out.println("TEST 15 - Remove Intern/Manager/Director");
         reusaxCorp.removeEmployee("7");
         System.out.println(reusaxCorp.retrieveEmployee("7"));
         reusaxCorp.removeEmployee("10");
         System.out.println(reusaxCorp.retrieveEmployee("10"));
         reusaxCorp.removeEmployee("13");
         System.out.println(reusaxCorp.retrieveEmployee("13"));
-        System.out.println();*/
-
-
+        System.out.println();
     }
 }
