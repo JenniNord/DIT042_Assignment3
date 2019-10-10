@@ -23,19 +23,21 @@ public class Manager extends Employee {
     public double calculateDegreeLevelBonus() {
     	double degreeLevelBonus = 0;
 
-        if(this.degreeLevel.contains("BSc")) {
-            degreeLevelBonus = 0.1;
-        }
-        if(this.degreeLevel.contains("MSc")) {
-            degreeLevelBonus = 0.2;
-        }
-        if(this.degreeLevel.contains("PhD")) {
-            degreeLevelBonus = 0.35;
-        }
-
+    	switch(degreeLevel) {
+    	case "BSc":
+    		degreeLevelBonus = 0.1;
+    		break;
+    	case "MSc":
+    		degreeLevelBonus = 0.2;
+    		break;
+    	case "PhD":
+    		degreeLevelBonus = 0.35;
+    		break;
+    	default:
+    		System.out.println("Invalid degree level");
+    	}
         return degreeLevelBonus;
     }
-
 
     //This just calculates the gross pay plus the education bonus. Used in Manager AND Director classes
     public double calculateGrossPlusBonus () {
