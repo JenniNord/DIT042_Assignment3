@@ -5,8 +5,11 @@ import java.util.ArrayList;
 public class ReusaxCorp {
     private ArrayList<Employee> employees;
 
+    // Reusax object is being initialised with an ArrayList called employees and the attribute directorsBenefit
+    // set at 5000 as default
     public ReusaxCorp() {
         employees = new ArrayList<>();
+        updateDirectorsBenefit(5000);
     }
 
     /**
@@ -116,8 +119,8 @@ public class ReusaxCorp {
         return totalNet;
     }
 
-    public void directorsBenefit (double directorsBenefit) {
-        directorsBenefit = 5000;
+
+    public void updateDirectorsBenefit (double directorsBenefit) {
         Director.setDirectorsBenefit(directorsBenefit);
     }
 
@@ -130,11 +133,13 @@ public class ReusaxCorp {
         ReusaxCorp reusaxCorp = new ReusaxCorp();
 
 
+
+
         //Tests calculateTotalGrossSalaries and calculateTotalNetSalaries
 
         System.out.println("TEST 5");
-        double directorsBenefit = 5000;
-        reusaxCorp.directorsBenefit(directorsBenefit);
+        double directorsBenefit = 10000;
+        reusaxCorp.updateDirectorsBenefit(directorsBenefit);
         reusaxCorp.registerDirector("6","Per",60000,"MSc","Technology");
         System.out.println("ReusaxCorp pays a total of " + reusaxCorp.calculateTotalGrossSalaries() + " SEK in gross salaries");
         System.out.println("ReusaxCorp pays a total of " + reusaxCorp.calculateTotalNetSalaries() + " SEK in Net salaries");

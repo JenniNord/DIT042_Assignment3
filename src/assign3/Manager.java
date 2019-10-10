@@ -10,6 +10,7 @@ public class Manager extends Employee {
         this.setDegreeLevel(degreeLevel);
     }
 
+
     public void setDegreeLevel(String degreeLevel) {
         this.degreeLevel = degreeLevel;
     }
@@ -31,7 +32,7 @@ public class Manager extends Employee {
         if(this.degreeLevel.contains("PhD")) {
             degreeLevelBonus = 0.35;
         }
-        
+
         return degreeLevelBonus;
     }
 
