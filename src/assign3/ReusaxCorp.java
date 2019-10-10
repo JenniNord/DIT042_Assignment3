@@ -20,19 +20,19 @@ public class ReusaxCorp {
         Employee employee = new Employee(id, name, grossSalary);
         employees.add(employee);
     }
-    //Registers a new manager 
+    //Registers a new manager, declaring base type
     public void registerManager(String id, String name, double grossSalary, String degreeLevel) {
     	Employee manager = new Manager(id, name, grossSalary, degreeLevel);
     	employees.add(manager);
     }
     
-  //Registers a new intern 
+  //Registers a new intern, declaring descendant type 
     public void registerIntern(String id, String name, double grossSalary, int GPA) {
     	Intern intern = new Intern(id, name, grossSalary, GPA);
     	employees.add(intern);
     }
     
-  //Registers a new director 
+  //Registers a new director, declaring base type
     public void registerDirector(String id, String name, double grossSalary, String degreeLevel,
             String assignedDepartment) {
     	Employee director = new Director(id, name, grossSalary, degreeLevel, assignedDepartment);
@@ -123,4 +123,26 @@ public class ReusaxCorp {
     public void updateDirectorsBenefit (double directorsBenefit) {
         Director.setDirectorsBenefit(directorsBenefit);
     }
+    
+    //TASK 5
+    
+	public void promoteToIntern(String id, int gpa) {
+		Employee oldPosition = retrieveEmployee(id);
+		Intern newPosition = new Intern(id, oldPosition.getName(), oldPosition.getGrossSalary(), gpa);
+		removeEmployee(id);
+		employees.add(newPosition);
+	}
+
+	public void promoteToManager(String id, String degree) {
+
+	}
+
+	public void promoteToEmployee(String id) {
+
+	}
+
+	public void promoteToDirector(String id, String degree, String assignedDepartment) {
+
+	}
+
 }
