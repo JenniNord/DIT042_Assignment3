@@ -41,7 +41,8 @@ public class Director extends Manager {
     // 20% for the first 30k + 40% for any pay over 50k
     @Override
     public double calculateNetSalary() {
-    double netSalary;
+    double netSalary = 0;
+    
         if(calculateGrossBonusBenefit() < 30000.00) {
             netSalary = calculateGrossBonusBenefit() * 0.9;
         } else if((calculateGrossBonusBenefit() >= 30000.00) && (calculateGrossBonusBenefit() <= 50000.00)) {
