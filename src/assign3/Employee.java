@@ -50,19 +50,17 @@ public class Employee {
     }
     
     @Override
-    public boolean equals(Object other) {
-    	Employee otherEmployee = (Employee) other;
+	public boolean equals(Object other) {
+		Employee otherEmployee = (Employee) other;
 
-    	if (getId().equals(otherEmployee.getId())) {
-    		return true;
-    	} else {
-    		return false;
-    	}
-    	
-    //hashcode overide don't need because we are not using maps??
-    	
-//    	return getId().equals(otherEmployee.getId());
-    }
+		if (getId().equals(otherEmployee.getId())) {
+			return true;
+		} else {
+			return false;
+		}
+	}
     
- 
+//	we did not include a hash code override because we did not use maps but if the program ever changed in the future 
+//  it would be necessary 
+    
 }

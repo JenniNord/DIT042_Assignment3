@@ -2,33 +2,34 @@ package assign3;
 
 public class Intern extends Employee{
 
-    private int GPA;
+    private int gpa;
 
 
-    public Intern(String id, String name, double grossSalary, int GPA) {
+    public Intern(String id, String name, double grossSalary, int gpa) {
         super(id, name, grossSalary);
-        this.GPA = GPA;
+        this.gpa = gpa;
     }
 
     public int getGPA() {
-        return GPA;
+        return gpa;
     }
 
-    public void setGPA(int GPA) {
-        this.GPA = GPA;
+    public void setGPA(int gpa) {
+        this.gpa = gpa;
     }
     
     @Override //annotation, not required but advised
     public double calculateNetSalary() {
-    	double adjustedGrossSalary = getGrossSalary();
-    	double netSalary = adjustedGrossSalary - (adjustedGrossSalary * 0.1);
+    	double netSalary;
     
-    	if (GPA <= 5) {
-    		adjustedGrossSalary = 0;
-    	} else {
-    		if (GPA >= 8) {
-    			adjustedGrossSalary = getGrossSalary() + 1000;
-    		}
+    	if (gpa <= 5) {
+    		netSalary = 0;
+    		
+    	} else  if (gpa >= 8) {
+    		netSalary = getGrossSalary() + 1000;
+    		
+    	} else { 
+    		netSalary = getGrossSalary();
     	}
     	return netSalary;
     }
