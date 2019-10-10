@@ -3,7 +3,7 @@ package assign3;
 public class Director extends Manager {
 
     private String assignedDepartment;
-    public static double directorsBenefit;
+    private static double directorsBenefit;
 
     public Director(String id, String name, double grossSalary, String degreeLevel,
                     String assignedDepartment) {
@@ -23,10 +23,6 @@ public class Director extends Manager {
     public static void setDirectorsBenefit(double directorsBenefit) {
         Director.directorsBenefit = directorsBenefit;
     }
-    public static double getDirectorsBenefit() {
-        return Director.directorsBenefit;
-    }
-
 
     // method to calculate the combined base gross pay plus educational bonus from the Manager class
     // plus the director's benefit. I think separating this from the getNetSalary method eases readability
@@ -41,7 +37,8 @@ public class Director extends Manager {
     // 20% for the first 30k + 40% for any pay over 50k
     @Override
     public double calculateNetSalary() {
-    double netSalary;
+    double netSalary = 0;
+
         if(calculateGrossBonusBenefit() < 30000.00) {
             netSalary = calculateGrossBonusBenefit() * 0.9;
         } else if((calculateGrossBonusBenefit() >= 30000.00) && (calculateGrossBonusBenefit() <= 50000.00)) {
