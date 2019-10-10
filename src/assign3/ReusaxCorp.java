@@ -133,16 +133,25 @@ public class ReusaxCorp {
 		employees.add(newPosition);
 	}
 
-	public void promoteToManager(String id, String degree) {
-
+	public void promoteToManager(String id, String degreeLevel) {
+		Employee oldPosition = retrieveEmployee(id);
+		Manager newPosition = new Manager(id, oldPosition.getName(),oldPosition.getGrossSalary(), degreeLevel);
+		removeEmployee(id);
+		employees.add(newPosition);
 	}
 
 	public void promoteToEmployee(String id) {
-
+		Employee oldPosition = retrieveEmployee(id);
+		Employee newPosition = new Employee(id, oldPosition.getName(), oldPosition.getGrossSalary());
+		removeEmployee(id);
+		employees.add(newPosition);
 	}
 
-	public void promoteToDirector(String id, String degree, String assignedDepartment) {
-
+	public void promoteToDirector(String id, String degreeLevel, String assignedDepartment) {
+		Employee oldPosition = retrieveEmployee(id);
+		Director newPosition = new Director(id, oldPosition.getName(),oldPosition.getGrossSalary(), degreeLevel, assignedDepartment );
+		removeEmployee(id);
+		employees.add(newPosition);
 	}
 
 }
