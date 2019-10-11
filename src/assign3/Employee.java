@@ -51,14 +51,28 @@ public class Employee {
     
     @Override
 	public boolean equals(Object other) {
-        //null itself instanceof
-		Employee otherEmployee = (Employee) other;
+        //Checks if other is the same object as "this one", aka same as itself
+        if (other == this) {
+            return true;
+        }
 
-		if (getId().equals(otherEmployee.getId())) {
-			return true;
-		} else {
-			return false;
-		}
+        //Checks if other is null or an actual object
+        if (other == null) {
+            return false;
+        }
+
+        //Checks if other is an Employee or a subclass of Employee
+        if (other instanceof Employee) {
+            Employee otherEmployee = (Employee) other;
+
+            if (getId().equals(otherEmployee.getId())) {
+                return true;
+            } else {
+                return false;
+            }
+        } else {
+            return false;
+        }
 	}
     
 //	we did not include a hash code override because we did not use maps but if the program ever changed in the future 
