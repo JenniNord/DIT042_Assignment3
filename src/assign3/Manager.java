@@ -23,18 +23,18 @@ public class Manager extends Employee {
     public double calculateDegreeLevelBonus() {
     	double degreeLevelBonus = 0;
 
-    	switch(degreeLevel) {
-    	case "BSc":
-    		degreeLevelBonus = 0.1;
-    		break;
-    	case "MSc":
-    		degreeLevelBonus = 0.2;
-    		break;
-    	case "PhD":
-    		degreeLevelBonus = 0.35;
-    		break;
-    	default:
-    		System.out.println("Invalid degree level");
+    	switch(degreeLevel.toLowerCase()) {
+	    	case "bsc":
+	    		degreeLevelBonus = 0.1;
+	    		break;
+	    	case "msc":
+	    		degreeLevelBonus = 0.2;
+	    		break;
+	    	case "phd":
+	    		degreeLevelBonus = 0.35;
+	    		break;
+	    	default:
+	    		System.out.println("Invalid degree level");
     	}
         return degreeLevelBonus;
     }
