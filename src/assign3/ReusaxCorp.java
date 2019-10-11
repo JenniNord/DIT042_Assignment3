@@ -20,13 +20,14 @@ public class ReusaxCorp {
         Employee employee = new Employee(id, name, grossSalary);
         employees.add(employee);
     }
-    //Registers a new manager, declaring base type
+
+    //  Registers a new manager, declaring base type
     public void registerManager(String id, String name, double grossSalary, String degreeLevel) {
     	Employee manager = new Manager(id, name, grossSalary, degreeLevel);
     	employees.add(manager);
     }
     
-  //Registers a new intern, declaring descendant type 
+    //  Registers a new intern, declaring descendant type
     public void registerIntern(String id, String name, double grossSalary, int GPA) {
     	Intern intern = new Intern(id, name, grossSalary, GPA);
     	employees.add(intern);
@@ -119,13 +120,18 @@ public class ReusaxCorp {
         return totalNet;
     }
 
-
+    //  Makes it possible to update the directorsBenefit bonus. Takes in a figure and sends it
+    //  to Director method setDirectorsBenefit
     public void updateDirectorsBenefit (double directorsBenefit) {
         Director.setDirectorsBenefit(directorsBenefit);
     }
-    
-    //TASK 5
-    
+
+    //  TASK 5
+    //  *Creates a new reference to the employee being retrieved via ID number.
+    //  *Next, creates a new reference to an Intern object and initialises it with the same details
+    //  as the retrieved employee, plus the additional information required by the new class.
+    //  The retrieved employee is then removed from the ArrayList and the new version is added.
+    //  This is repeated with adjusted references for the other 'promotions'.
 	public void promoteToIntern(String id, int gpa) {
 		Employee oldPosition = retrieveEmployee(id);
 		Intern newPosition = new Intern(id, oldPosition.getName(), oldPosition.getGrossSalary(), gpa);
