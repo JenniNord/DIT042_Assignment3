@@ -1,3 +1,17 @@
+/**
+ * RELATED TO TASK 5 AND THE IMPLEMENTATION OF TASK 5
+ * Cons:
+ * -Lots of repeated code that could have been refactored into one method
+ *
+ *
+ * Pros:
+ * -We are able to store all the objects in the same ArrayList because of inheritance and polymorphism
+ * -You can remove one of the methods easily without impacting the whole program
+ * -It enables us to work around the limitation of being unable to cast directly between sibling
+ *  classes (Manager/Intern)
+ */
+
+
 package assign3;
 
 import java.util.ArrayList;
@@ -126,12 +140,14 @@ public class ReusaxCorp {
         Director.setDirectorsBenefit(directorsBenefit);
     }
 
-    //  TASK 5
-    //  *Creates a new reference to the employee being retrieved via ID number.
-    //  *Next, creates a new reference to an Intern object and initialises it with the same details
-    //  as the retrieved employee, plus the additional information required by the new class.
-    //  The retrieved employee is then removed from the ArrayList and the new version is added.
-    //  This is repeated with adjusted references for the other 'promotions'.
+    /**
+     * TASK 5
+     * Creates a new reference to the employee being retrieved via ID number.
+     * Next, creates a new reference to an Intern object and initialises it with the same details
+     * as the retrieved employee, plus the additional information required by the new class.
+     * The retrieved employee is then removed from the ArrayList and the new version is added.
+     * This is repeated with adjusted references for the other 'promotions'.
+     */
 	public void promoteToIntern(String id, int gpa) {
 		Employee oldPosition = retrieveEmployee(id);
 		Intern newPosition = new Intern(id, oldPosition.getName(), oldPosition.getGrossSalary(), gpa);

@@ -1,4 +1,4 @@
-assign3_Dermat_Douglas_Nord
+assign3_Deramat_Douglas_Nord
 
 Author 1: Dominique Deramat
 Intern class, 
@@ -17,9 +17,13 @@ promotetoIntern/Manager/Employee/Director
 Relevant tests
 
 Author 3: Jennifer Nord
-ReusaxCorp
-Update of equals method to incorporate instanceof checka
-registerEmployee/Manager/Intern/Director, retrieveEmployee, removeEmployee, updateEmployeeSalary, getTotalNumberOfEmployees
-promotetoIntern/Manager/Employee/Director
+Update of equals method to incorporate instanceof check
+registerEmployee/Manager/Intern/Director, 
+retrieveEmployee, 
+removeEmployee, 
+updateEmployeeName, 
+updateEmployeeSalary, 
+getTotalNumberOfEmployees
+
 
 Establishment of testing
