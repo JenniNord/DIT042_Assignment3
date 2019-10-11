@@ -45,12 +45,13 @@ public class Employee {
      * We might need to format grossSalary so we don't get too many decimals!
      */
     public String toString() {
-        String result = name + "'s gross salary is of " + grossSalary + " SEK per month.";
+        String result = getName() + "'s gross salary is of " + getGrossSalary() + " SEK per month.";
         return result;
     }
     
     @Override
 	public boolean equals(Object other) {
+        //null itself instanceof
 		Employee otherEmployee = (Employee) other;
 
 		if (getId().equals(otherEmployee.getId())) {

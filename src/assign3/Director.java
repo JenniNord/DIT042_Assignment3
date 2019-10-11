@@ -24,10 +24,12 @@ public class Director extends Manager {
         Director.directorsBenefit = directorsBenefit;
     }
 
+
     // method to calculate the combined base gross pay plus educational bonus from the Manager class
     // plus the director's benefit. I think separating this from the getNetSalary method eases readability
-    public double calculateGrossBonusBenefit() {
-        double grossBonusBenefit = super.calculateGrossPlusBonus() + Director.directorsBenefit;
+    @Override
+    public double getGrossSalary() {
+        double grossBonusBenefit = super.getGrossSalary() + Director.directorsBenefit;
         return grossBonusBenefit;
     }
 
@@ -39,12 +41,12 @@ public class Director extends Manager {
     public double calculateNetSalary() {
     double netSalary = 0;
 
-        if(calculateGrossBonusBenefit() < 30000.00) {
-            netSalary = calculateGrossBonusBenefit() * 0.9;
-        } else if((calculateGrossBonusBenefit() >= 30000.00) && (calculateGrossBonusBenefit() <= 50000.00)) {
-            netSalary = calculateGrossBonusBenefit() * 0.8;
+        if(getGrossSalary() < 30000.00) {
+            netSalary = getGrossSalary() * 0.9;
+        } else if((getGrossSalary() >= 30000.00) && (getGrossSalary() <= 50000.00)) {
+            netSalary = getGrossSalary() * 0.8;
         } else {
-           netSalary = ((calculateGrossBonusBenefit()-30000.00)*0.6) + (30000.00*0.8);
+           netSalary = ((getGrossSalary()-30000.00)*0.6) + (30000.00*0.8);
         }
 
         return netSalary;
