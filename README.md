@@ -17,7 +17,7 @@ promotetoIntern/Manager/Employee/Director
 Relevant tests
 
 Author 3: Jennifer Nord
-Update of equals method to incorporate instanceof check
+Update of equals method to incorporate null/this/instanceof check
 registerEmployee/Manager/Intern/Director, 
 retrieveEmployee, 
 removeEmployee, 
