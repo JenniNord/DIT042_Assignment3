@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class TestReusaxCorp {
 
     /**
-     * This isn't in any way a "proper" test class but it tests the basic functionality of Assignment 3.
+     * This isn't in any way a "proper" test class but it tests the basic functionality required for Assignment 3.
      */
     public static void main(String[] args) {
         ReusaxCorp reusaxCorp = new ReusaxCorp();
